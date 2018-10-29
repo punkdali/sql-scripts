@@ -533,8 +533,8 @@ BEGIN
             SELECT @maxDopRestriction = Internal_Value
             FROM #processor;
 
-        /* Check our server version; 1804890536 = Enterprise, 610778273 = Enterprise Evaluation, -2117995310 = Developer */
-        IF (SELECT ServerProperty('EditionID')) IN (1804890536, 610778273, -2117995310) 
+        /* Check our server version; 1804890536 = Enterprise, 610778273 = Enterprise Evaluation, -2117995310 = Developer, 1872460670 = Enterprise Edition: Core-based Licensing */
+        IF (SELECT ServerProperty('EditionID')) IN (1804890536, 610778273, -2117995310, 1872460670) 
             SET @editionCheck = 1 -- supports online rebuilds
         ELSE
             SET @editionCheck = 0; -- does not support online rebuilds
